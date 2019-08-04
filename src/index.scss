@@ -150,4 +150,12 @@ input::placeholder {
     top: 45%;
     left: 40%;
     font-size: 40px;
+
+    &:hover {
+        font-size: 45px;
+    }
+}
+
+.off-white {
+    color: #ebebeb;
 }

@@ -24,7 +24,8 @@ const Item = styled.div`
 `;
 
 const CoverLayout = styled.div`
-    background-color: rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+    background-size: cover;
     position: absolute;
     height: 300px;
     width: 212px;
@@ -65,7 +66,7 @@ const ListItems = ({ className, data }) => {
         <Container className={`ListItems ${className || ''}`}>
             {Object.keys(data).map((x, i) => (
                 <React.Fragment key={i}>
-                    {vId && i === itemIdx && <YoutubePlayer vId={vId} bgImg={`https://in.bmscdn.com/events/moviecard/${obj.EventImageCode}.jpg`} />}
+                    {vId && i === itemIdx && <YoutubePlayer vId={vId} obj={obj} bgImg={`https://in.bmscdn.com/events/moviecard/${obj.EventImageCode}.jpg`} />}
                     <Item key={i}>
                         <StyledImage border={vId === getVId(data[x])} src={`https://in.bmscdn.com/events/moviecard/${data[x].EventImageCode}.jpg`} alt={data[x].EventImageCode} />
                         {vId !== getVId(data[x]) && <CoverLayout />}
