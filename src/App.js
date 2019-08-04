@@ -13,7 +13,7 @@ class App extends Component {
     componentWillMount() {
         axios
             .get('http://localhost:8000/node/api/getData')
-            .then(res => console.log(res) || this.setState(() => ({ data: res.data.data })))
+            .then(res => this.setState(() => ({ data: res.data.data })))
             .catch(e => console.log(e));
     }
 

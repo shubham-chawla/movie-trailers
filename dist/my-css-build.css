@@ -6,7 +6,7 @@ html {
 
 body {
   margin: 0;
-  color: #8a8a8a;
+  color: #000000;
   font-size: 14px;
   min-height: 100%;
   line-height: 22px;
@@ -35,9 +35,9 @@ code {
 
 .max-width-container {
   margin: 0 auto;
-  max-width: 1200px; }
+  max-width: 1360px; }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1400px) {
   .max-width-container {
     margin: 0 auto;
     padding: 0 40px;
@@ -46,6 +46,10 @@ code {
 input::placeholder {
   font-size: 14px !important;
   color: #909090; }
+
+.big {
+  font-size: 16px;
+  font-weight: 400; }
 
 .regular {
   font-size: 14px;
@@ -73,6 +77,12 @@ input::placeholder {
 .margin-t-5 {
   margin-top: 5px; }
 
+.margin-t-10 {
+  margin-top: 10px; }
+
+.margin-t-20 {
+  margin-top: 20px; }
+
 .margin-t-50 {
   margin-top: 50px; }
 
@@ -82,8 +92,14 @@ input::placeholder {
 .margin-l-5 {
   margin-left: 5px; }
 
+.margin-l-10 {
+  margin-left: 10px; }
+
+.margin-l-20 {
+  margin-left: 20px; }
+
 .solid {
-  color: #909090; }
+  color: #ffffff; }
 
 .pointer {
   cursor: pointer; }
@@ -98,4 +114,11 @@ input::placeholder {
 
 .light-gray {
   color: #d7d7d7; }
+
+.play-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  font-size: 40px; }
 
