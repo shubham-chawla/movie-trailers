@@ -12,7 +12,7 @@ class App extends Component {
 
     componentWillMount() {
         axios
-            .get('http://localhost:8000/node/api/getData')
+            .get('https://movie-trailers-react-app.herokuapp.com/node/api/getData')
             .then(res => this.setState(() => ({ data: res.data.data })))
             .catch(e => console.log(e));
     }
