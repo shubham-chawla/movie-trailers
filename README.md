@@ -1,4 +1,4 @@
-A simple server-side rendered React App.
+A simple server-side rendered React App for latest movie's trailers, based on the data from BookMyShow's API.
 
 ## Available Scripts
 
