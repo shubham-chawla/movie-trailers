@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Youtube from 'react-youtube';
 import styled from 'styled-components';
 
@@ -8,8 +8,8 @@ const VideoContainer = styled.div`
     width: 100%;
     justify-content: space-between;
     padding: 20px;
-    flex-basis: 100%;
     position: relative;
+    grid-column: 1 / ${({ columns }) => columns + 1};
 `;
 
 const ImageBg = styled.div`
@@ -60,25 +60,29 @@ const EventGenre = styled.div`
     height: 15px;
 `;
 
-const YoutubePlayer = ({ bgImg, vId, obj }) => (
-    <VideoContainer className="YoutubePlayer">
-        <ImageBg bgImg={bgImg} />
-        <VideoPlayer>
-            <Youtube className="cls" videoId={vId} opts={{ playerVars: { autoplay: 1 } }} />
-        </VideoPlayer>
-        <DetailLayout>
-            <div className="big text-bold white">{obj.EventName}</div>
-            <div className="small off-white margin-t-10">{obj.EventLanguage}</div>
-            <div className="frow">
-                {obj.EventGenre &&
-                    obj.EventGenre.split('|').map((x, i) => (
-                        <EventGenre key={i} className="margin-t-10 margin-r-5">
-                            {x}
-                        </EventGenre>
-                    ))}
-            </div>
-        </DetailLayout>
-    </VideoContainer>
-);
+const YoutubePlayer = ({ bgImg, vId, obj, columns }) => {
+    useEffect(() => document.getElementById('video-player').scrollIntoView())
+    
+    return (
+        <VideoContainer id="video-player" columns={columns} className="YoutubePlayer">
+            <ImageBg bgImg={bgImg} />
+            <VideoPlayer>
+                <Youtube className="cls" videoId={vId} opts={{ playerVars: { autoplay: 1 } }} />
+            </VideoPlayer>
+            <DetailLayout>
+                <div className="big text-bold white">{obj.EventName}</div>
+                <div className="small off-white margin-t-10">{obj.EventLanguage}</div>
+                <div className="frow">
+                    {obj.EventGenre &&
+                        obj.EventGenre.split('|').map((x, i) => (
+                            <EventGenre key={i} className="margin-t-10 margin-r-5">
+                                {x}
+                            </EventGenre>
+                        ))}
+                </div>
+            </DetailLayout>
+        </VideoContainer>
+    )
+};
 
 export default YoutubePlayer;
